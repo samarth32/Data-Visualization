@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<script src="d3.v6.min.js"></script>
+	</head>
+	<body>
+		<script>
+			d3.select("body").append("svg")
+			  .attr("width",300).attr("height",300);
+			//Line
+			d3.select("svg").append("line")
+			  .attr("x1",10).attr("y1",10)
+			  .attr("x2",100).attr("y2",100)
+			  .attr("stroke","blue")
+			  .attr("stroke-width",5);
+			//Rectangle
+			d3.select("svg").append("rect")
+			  .attr("x",110).attr("y",120)
+			  .attr("width",100).attr("height",50)
+			  .attr("stroke","pink")
+			  .attr("fill","white")
+			  .attr("stroke-width",5);
+			//Circle
+			d3.select("svg").append("circle")
+			  .attr("cx",200).attr("cy",220)
+			  .attr("r",20)
+			  .attr("stroke","purple")
+			  .attr("fill","blue")
+			  .attr("stroke-width",5);
+			//Ellipse
+				d3.select("svg").append("ellipse")
+			  .attr("cx",140).attr("cy",180)
+			  .attr("rx",100).attr("ry",10)
+			  .attr("stroke","purple")
+			  .attr("fill","blue")
+			  .attr("stroke-width",5);
+			//Text
+				d3.select("svg").append("text")
+				  .attr("x",110).attr("y",50)
+				  .text("HelloWorld")
+				  .transition()
+				  .duration(2000)
+				  .delay(1000)
+				  .attr("font-size",20)
+				  .attr("stroke","green");
+		</script>
+	</body>
+</html>
