@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title>BarChart usingD3</title>
+		<script src="d3.v6.min.js"></script>
+	</head>
+	<body>
+		<svg width=900 height=900></svg>
+		<script>
+			var d=[50,20,30,40,10];
+			d3.select("svg").selectAll("rect")
+			  .data(d).enter().append("rect")
+			  .attr("fill","brown")
+			  .attr("height",50)
+			  .attr("x",10)
+			  .attr("y",function(d,i){return i*60+50;})
+			  .transition().duration(2000).delay(1000)
+			  .attr("width",function(d){return d*10;});
+		</script>
+	</body>
+</html>

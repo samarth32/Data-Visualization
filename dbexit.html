@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title>DataBinding</title>
+		<script src="d3.v6.min.js"></script>
+	</head>
+	<body>
+		<p></p>
+		<p></p>
+		<p></p>
+		<script>
+			var d=["Hello"];
+			var s=d3.select("body").selectAll("p");
+			s.data(d).text(function(d,i){return d;}).exit().remove();
+		</script>
+	</body>
+</html>

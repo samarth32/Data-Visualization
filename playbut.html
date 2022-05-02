@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>BarChartUsingSvg</title>
+		<script src="d3.v6.min.js"></script>
+	</head>
+	<body>
+		<div>
+			<button onclick="showbar(myData1,0)">2010</button>
+			<button onclick="showbar(myData2,1)">2012</button>
+			<button onclick="showbar(myData3,2)">2014</button>
+			<button onclick="showbar(myData4,3)">2015</button>
+			<button onclick="showAll()">PlayAll</button>
+		</div>
+		<svg width=800 height=800></svg>
+	</body>
+	<script>
+		var myData1=[10,30,20,40,50];
+		var myData2=[15,20,22,36,47];
+		var myData3=[5,6,7,8,9,10];
+		var myData4=[10,20,30,40,50,60];
+
+		var col=["orange","grey","green","yellow"];
+		var year=[2010,2012,2014,2015];
+
+		function showAll()
+		{
+			setTimeout(showbar,3000,myData1,0);
+			setTimeout(showbar,6000,myData2,1);
+			setTimeout(showbar,9000,myData3,2);
+			setTimeout(showbar,12000,myData4,3);
+		}
+
+		function showbar(myData,j)
+		{
+			d3.select('body').select('svg')
+			  .selectAll('rect')
+			  .data(myData)
+			  .join('rect')
+			  .attr('x',100)
+			  .attr('y',(d,i)=>(i+1)*100)
+			  // .transition()
+			  // .delay(1000)
+			  // .duration(2000)
+			  .attr('height',50)
+			  .attr('width',(d)=>d*10)
+			  .attr('fill',col[j]);
+
+		    d3.select('body').select('svg')
+		      .selectAll('text')
+		      .data(myData).join('text')
+		      .attr('x',110)
+		      .attr('y',(d,i)=>(i+1)*100+10)
+		      .text((d)=>d)
+		      .attr('fill',white);
+
+		      d3.select('body').select('h3')
+		        .text(year[j]);
+		}
+	</script>
+</html>
