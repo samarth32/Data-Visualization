@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<script src="d3.v6.min.js"></script>
+	</head>
+	<body>
+		<script>
+			d3.csv("http://127.0.0.1:8080/Sample.csv").then(function(data){
+				//LoadingData
+				for(i=0;i<data.length;i++)
+				{
+					document.write(data[i].Name+":"+data[i].Age+"</br>");
+				}
+				//FilteringData
+				var a=32;
+				var fd=data.filter(function(element){return element.Age==a});
+				document.write("</br>DATA FILTERING</br>");
+				for(i=0;i<fd.length;i++)
+				{
+					document.write(fd[i].Name+":"+fd[i].Age+"</br>");
+				}
+			});
+		</script>
+	</body>
+</html>

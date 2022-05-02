@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>Reading JSON File using D3</title>
+		<script src="d3.v6.min.js"></script>	
+	</head>
+	<body>
+		<script>
+			d3.json("http://127.0.0.1:8080/Sample.json")
+				.then(function(data){
+						console.log(data);
+						console.table(data.person);
+						for(i=0;i<data.person.length;i++)
+						{
+							document.write("<br>",data.person[i].name);
+							document.write("<br>",data.person[i].age);
+							document.write("<br>",data.person[i].email);
+						}
+						var filteredData=data.person.filter(function(d){
+														return d.age>25;
+						});
+						console.log(filteredData);
+						console.table(filteredData);
+					});
+		</script>
+	</body>
+</html>
